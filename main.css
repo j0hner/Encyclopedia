@@ -1,55 +1,109 @@
+:root{
+	--accentColor: #7BC74D;
+	/* --linkColor:#FD7014; */
+	--darkColor2: #222831;
+	--darkColor1: #393E46;
+	--textColor: #EEEEEE;
+	--font: Sarabun;
+}
+
+body {
+	background-color: var(--darkColor1);
+	font-family: var(--font);
+	margin: 0;
+}
 h1 {
 	text-align: center;
 	font-size: 50px;
 }
-body {
-	background-color: rgb(35, 35, 35);
+#sources{
+	margin-top: 15px;
+	margin-bottom: 0;
 }
-a,
-li {
-	color: rgb(255, 127.5, 0);
-	font-family: Arial, Helvetica, sans-serif;
+
+.InfoBox{
+	border: 3px solid var(--accentColor);
+	border-left-width: 10px;
+	border-radius: 5px;
+	background-color: var(--darkColor2);
+	margin: 10px;
+	padding-left: 55px;
+	background-image: url(images/info_icon.png);
+	background-repeat: no-repeat;
+	background-size: 40px;
+	background-position: 8px 8px;
+	min-height: 56px;
+	justify-content: center;
 }
-p,
-.text,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-table {
-	font-family: Arial, Helvetica, sans-serif;
-	color: #c8c8c8;
+a, li {
+	color: var(--accentColor);
 }
+
+p, .text,h1,h2,h3,h4,h5,h6,table, figcaption {
+	color: var(--textColor);
+}
+
+p, a, .text,h2,h3,h4,h5,h6{
+	margin-left: 10px;
+}
+
+.title{
+	padding-bottom: 20px;
+	margin-bottom: 3px;
+	border-bottom: 3px solid var(--textColor);
+	color: var(--accentColor);
+	background-color: var(--darkColor2);
+	margin-top: 0;
+	padding-top: 30px;
+}
+
 hr {
-	color: rgb(40, 40, 40);
-}
-
-li {
-	padding: 3px;
+	color: var(--darkColor2);
 }
 
 table {
+	/* width: 1000px; */
 	width: 100%;
 	border-collapse: collapse;
+	background-color: var(--darkColor2);
 }
-
-th,
 td {
 	padding: 8px;
 	text-align: left;
 }
-
-tr:not(:last-child) {
-	border-bottom: 1px solid #c8c8c8;
+th {
+	padding: 8px;
+	text-align: left;
+	background-color: var(--darkColor2);
+	font-weight: bold;
+	color: var(--accentColor);
+}
+tr {
+	border-top: 1px solid var(--textColor);
+	border-bottom: 1px solid var(--textColor);
+}
+tr:last-child{
+	border-bottom: 3px solid var(--textColor);
+}
+tr:first-child{
+	border-top: 3px solid var(--textColor);
 }
 
-th {
-	background-color: rgb(51, 51, 51);
+figure{
+	border: 3px solid var(--textColor);
+	border-radius: 5px;
+	background-color: var(--darkColor2);
+	display: inline-block; 
+	text-align: center; 
+	padding: 5px;
+	margin: 10px;
+}
+
+figcaption{
+	color: var(--accentColor);
 	font-weight: bold;
 }
 
-tr:nth-child(even) {
-	background-color: rgb(70, 70, 70);
+img{
+	border-radius: 2px;
 }
