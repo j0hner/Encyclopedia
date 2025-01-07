@@ -7,6 +7,10 @@
     --font: Sarabun;
 }
 
+html{
+    display: flex;
+}
+
 body {
     background-color: var(--darkColor1);
     font-family: var(--font);
@@ -27,7 +31,7 @@ h1 {
     border-radius: 5px;
     background-color: var(--darkColor2);
     margin: 10px;
-    padding-left: 55px;
+    padding-left: 50px;
     background-image: url(images/info_icon.png);
     background-repeat: no-repeat;
     background-size: 40px;
