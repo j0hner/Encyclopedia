@@ -6,6 +6,6 @@
 - 2 tabulky
 - infobox
 - zdroje (taky v navbaru)
+ - popout popisky k obrázkům
 ----------
 ## todo:
-- popout popisky k obrázkům
