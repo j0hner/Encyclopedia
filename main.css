@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
 :root {
 	--accentColor: #7bc74d;
-	/* --accentColor:#FD7014; */
 	--darkColor2: #222831;
 	--darkColor1: #393e46;
     --transparentBG: #222831A0;
-	--textColor: #eeeeee;
+	--textColor: rgb(238, 238, 238);
 	--font: 'Sarabun';
 }
 
@@ -18,6 +18,7 @@ body {
 	margin: 0;
     height: 100%;
     width: 100%;
+    text-align: justify;
 }
 
 .InfoBox {
@@ -26,8 +27,9 @@ body {
 	border-radius: 5px;
 	background-color: var(--darkColor2);
 	margin: 10px;
-	padding-left: 50px;
-	background-image: url(images/info_icon.png);
+	padding-right: 10px;
+    padding-left: 50px;
+	background-image: url(assets/info_icon.png);
 	background-repeat: no-repeat;
 	background-size: 40px;
 	background-position: 8px 8px;
@@ -41,12 +43,17 @@ body {
     display: table;
 }
 
+.content{
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+}
+
 /* #region general styles */
-p, .text, h1, h2, h3, h4, h5, h6, table, figcaption {
+p, .text, h1, h2, h3, h4, h5, h6, table, figcaption, pre {
     color: var(--textColor);
 }
 
-p, a, .text, h2, h3, h4, h5, h6 {
+p, .text, h2, h3, h4, h5, h6, pre {
 	margin-left: 10px;
 }
 
@@ -57,16 +64,34 @@ a, li{
 	color: var(--accentColor);
     font-weight: bold;
 }
+
+pre{
+    font-family: "Sarabun";
+}
 /* #endregion */
 /* #region header styles */
 header {
-    text-align: center;
-	border-bottom: 3px solid var(--textColor);
+    --bg-size: 90px;
+    --bg-offset: 20px 25px;
+    --header-height: 100px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: var(--header-height);
+	
+    border-bottom: 3px solid var(--textColor);
 	background-color: var(--darkColor2);
 	padding-top: 20px;
 	padding-bottom: 20px;
 	margin-top: 0;
-    margin-bottom: 50px;
+
+    background-image: url("assets/globe_book.png");
+    background-repeat: no-repeat;
+    
+    background-size: var(--bg-size);
+    background-position: var(--bg-offset)
+    
 }
 
 header h1 {
@@ -79,34 +104,47 @@ header h1 {
 /* #endregion */
 /* #region table styles*/
 table {
-	width: 100%;
-	border-collapse: collapse;
-	background-color: var(--darkColor2);
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0px;
+    background-color: var(--darkColor2);
+    border-radius: 0 5px 5px 0;
+    overflow: hidden;
+    /* border-right: 3px solid var(--textColor); */
 }
 td {
-	padding: 8px;
-	text-align: left;
+    padding: 8px;
+    text-align: left;
 }
 th {
-	padding: 8px;
-	text-align: left;
-	background-color: var(--darkColor2);
-	font-weight: bold;
-	color: var(--accentColor);
+    padding: 8px;
+    text-align: left;
+    font-weight: bold;
+    color: var(--accentColor);
 }
+
 tr {
-	border-top: 1px solid var(--textColor);
-	border-bottom: 1px solid var(--textColor);
+    border-top: 1px solid var(--textColor);
+    border-bottom: 1px solid var(--textColor);
+    border-right: 3px solid var(--textColor);
 }
+
 tr:last-child {
-	border-bottom: 3px solid var(--textColor);
+    border-bottom: 3px solid var(--textColor);
 }
+
 tr:first-child {
-	border-top: 3px solid var(--textColor);
+    border-top: 3px solid var(--textColor);
 }
 /* #endregion */
 /* #region figure styles */
-figure {
+
+aside .img_container{
+    position: sticky;
+    top: -70px;
+}
+
+aside figure {
 	border: 3px solid var(--textColor);
 	border-radius: 5px;
 	background-color: var(--darkColor2);
@@ -116,9 +154,17 @@ figure {
 	margin: 10px;
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%; /* Prevent stretching */
 }
 
-figure span{
+aside figure:last-child{
+    margin-bottom: 0;
+}
+
+aside figure span{
     position: absolute;
     bottom: -30px;
     left: 50%;
@@ -135,24 +181,33 @@ figure span{
     opacity: 0;
 }
 
-figure:hover span {
+aside figure:hover span {
     transition: bottom 0.2s ease-in-out;
     bottom: 0px;
     opacity: 1;
 }
 
-figure img {
+aside figure img {
 	border-radius: 2px;
 	display: block;
-    
+    max-width: 100%; /* Optional, if you want images to scale down */
+    height: auto;
+}
+
+aside {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 /* #endregion */
-/* #region nav */
+/* #region nav styles */
 
 nav {
     display: flex;
     justify-content: center; 
     margin: 0;
+    margin-bottom: 50px;
+
     
     background-color: var(--darkColor2);
 }
@@ -240,4 +295,19 @@ nav li ul li:last-child {
    
 }
 
+/* #endregion */
+/* #region footer styles */
+footer {
+    background-color: var(--darkColor2);
+    margin-top: 20px;
+    margin-bottom: 0;
+    border-top: 3px solid var(--textColor);
+    padding: 20px;
+    padding-left: 10px;
+    user-select: none;
+}
+
+footer pre{
+    margin: 3px;
+}
 /* #endregion */
